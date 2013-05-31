@@ -7,14 +7,19 @@ maven commands:
 
 1) install only bundles to cq5
 
-mvn -Pbundles,cq-install clean install
+<project-root>/mvn -Pbundles,cq-install clean install
 
 
 2) install only content to cq5
 
-mvn -Pcontent,cq-install clean install
+<project-root>/mvn -Pcontent,cq-install clean install
 
 
 3) install entire application to cq5 as single CRX package
 
-mvn -Pbundles,content,release,release-install clean install
+<project-root>/mvn -Pbundles,content,release,release-install clean install
+
+
+4) install specific module to cq5
+
+<project-root>/<module>/mvn -Pcq-install clean install
