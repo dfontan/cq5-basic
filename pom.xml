@@ -224,16 +224,6 @@
 				<artifactId>bundle-services</artifactId>
 				<version>${release.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>bundle-filters</artifactId>
-				<version>${release.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>bundle-servlets</artifactId>
-				<version>${release.version}</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
