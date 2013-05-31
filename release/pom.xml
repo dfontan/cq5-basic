@@ -157,13 +157,5 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>bundle-services</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>bundle-filters</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>bundle-servlets</artifactId>
-		</dependency>
 	</dependencies>
 </project>
