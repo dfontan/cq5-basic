@@ -11,8 +11,8 @@
 		
 		<!-- cq/sling related -->
 		<target.url>http://localhost:4502</target.url>
-		<crx.admin.user>admin</crx.admin.user>
-		<crx.admin.password>admin</crx.admin.password>
+		<crx.user>admin</crx.user>
+		<crx.password>admin</crx.password>
 		<type.zip>zip</type.zip>
 		<install.mode>replace</install.mode>
 		
@@ -45,8 +45,8 @@
 						<failOnError>true</failOnError>
 						<builtContentDirectory>jcr_root</builtContentDirectory>
 						<targetURL>${target.url}/crx/packmgr/service.jsp</targetURL>
-						<userId>${crx.admin.user}</userId>
-						<password>${crx.admin.password}</password>
+						<userId>${crx.user}</userId>
+						<password>${crx.password}</password>
 					</configuration>
 					<executions>
 						<execution>
