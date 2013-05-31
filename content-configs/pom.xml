@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.alexa.cms</groupId>
+		<artifactId>aggregator</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>content-configs</artifactId>
+	<version>${release.version}</version>
+	<name>${org.name.short} Configs Content</name>
+	<description>${org.name.long} Configs Content</description>
+	
+	<properties>
+		<filter.root>/apps/alexa/configs</filter.root>
+	</properties>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.day.jcr.vault</groupId>
+				<artifactId>content-package-maven-plugin</artifactId>
+				<configuration>
+					<filters>
+						<filter>
+							<root>${filter.root}</root>
+						</filter>
+					</filters>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<profiles>
+		<profile>
+			<id>cq-install</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.day.jcr.vault</groupId>
+						<artifactId>content-package-maven-plugin</artifactId>
+						<configuration>
+							<filters>
+								<filter>
+									<root>${filter.root}</root>
+									<mode>${install.mode}</mode>
+								</filter>
+							</filters>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>install</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

@@ -1,0 +1,21 @@
+-include:   pom.xml
+
+Bundle-Name: ${project.name}
+Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
+Bundle-Version: ${project.version}
+Bundle-Description: ${project.description}
+Bundle-RequiredExecutionEnvironment: ${required.java}
+Bundle-Vendor: ${org.name.long}
+Bundle-ContactAddress: ${org.email.support}
+Bundle-Category: ${org.name.short}
+Created-When: ${now}
+
+-debug: false
+-sources: false
+-removeheaders: Include-Resource
+-runfw: org.apache.felix.framework;version=4.0.0
+-runee: ${required.java}
+
+Export-Package: ${project.groupId}.services.*
+
+Import-Package: *

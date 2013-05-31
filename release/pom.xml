@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.alexa.cms</groupId>
+		<artifactId>aggregator</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>release</artifactId>
+	<version>${release.version}</version>
+	<name>${org.name.short} Release Package</name>
+	<description>${org.name.long} Release Package</description>
+	
+	<properties>
+		<filter.root>/apps/alexa/install</filter.root>
+	</properties>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.day.jcr.vault</groupId>
+				<artifactId>content-package-maven-plugin</artifactId>
+				<configuration>
+					<filters>
+						<filter>
+							<root>${filter.root}</root>
+						</filter>
+					</filters>
+					
+					<!-- all related content ZIPs -->
+					<subPackages>
+						<subPackage>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>content-apps</artifactId>
+							<type>${type.zip}</type>
+						</subPackage>
+						<subPackage>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>content-configs</artifactId>
+							<type>${type.zip}</type>
+						</subPackage>
+						<subPackage>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>content-etc</artifactId>
+							<type>${type.zip}</type>
+						</subPackage>
+						<subPackage>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>content-overlays</artifactId>
+							<type>${type.zip}</type>
+						</subPackage>
+					</subPackages>
+					
+					<!-- all related bundles -->
+					<embeddeds>
+						<embedded>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>bundle-commons</artifactId>
+							<target>${filter.root}</target>
+						</embedded>
+						<embedded>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>bundle-components</artifactId>
+							<target>${filter.root}</target>
+						</embedded>
+						<embedded>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>bundle-services</artifactId>
+							<target>${filter.root}</target>
+						</embedded>
+						<embedded>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>bundle-filters</artifactId>
+							<target>${filter.root}</target>
+						</embedded>
+						<embedded>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>bundle-servlets</artifactId>
+							<target>${filter.root}</target>
+						</embedded>
+					</embeddeds>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>release-install</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.day.jcr.vault</groupId>
+						<artifactId>content-package-maven-plugin</artifactId>
+						<configuration>
+							<filters>
+								<filter>
+									<root>${filter.root}</root>
+									<mode>${install.mode}</mode>
+								</filter>
+							</filters>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>install</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<!-- content ZIPs -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>content-apps</artifactId>
+			<type>${type.zip}</type>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>content-configs</artifactId>
+			<type>${type.zip}</type>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>content-etc</artifactId>
+			<type>${type.zip}</type>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>content-overlays</artifactId>
+			<type>${type.zip}</type>
+			<version>${release.version}</version>
+		</dependency>
+
+		<!-- bundles -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>bundle-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>bundle-components</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>bundle-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>bundle-filters</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>bundle-servlets</artifactId>
+		</dependency>
+	</dependencies>
+</project>
