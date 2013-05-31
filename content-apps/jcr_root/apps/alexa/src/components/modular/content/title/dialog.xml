@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog">
+	<items jcr:primaryType="cq:WidgetCollection">
+		<tabs jcr:primaryType="cq:TabPanel">
+			<items jcr:primaryType="cq:WidgetCollection">
+				<title
+					jcr:primaryType="cq:Widget"
+					title="Content Picker"
+					xtype="panel">
+					<items jcr:primaryType="cq:WidgetCollection">
+						<text
+							jcr:primaryType="nt:unstructured"
+	                        fieldLabel="Title Text"
+	                        name="./text"
+	                        xtype="textfield"/>
+					</items>
+				</title>
+			</items>
+		</tabs>
+	</items>
+</jcr:root>
